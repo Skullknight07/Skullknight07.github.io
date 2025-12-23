@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ติดต่อ | Tech IT</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #0b0614;
+            color: #f5e9ff;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #5a189a;
+            padding: 15px;
+            box-shadow: 0 2px 10px black;
+            text-align: center;
+        }
+
+        header h1 {
+            color: white;
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            color: #9d4edd;
+        }
+
+        main {
+            padding: 40px 20px;
+            max-width: 700px;
+            margin: 30px auto;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px #9d4edd;
+            background-color: #12091f;
+            color: white;
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #9d4edd;
+            padding-bottom: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, textarea {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1em;
+        }
+
+        textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        button {
+            background-color: #9d4edd;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #5a189a;
+        }
+
+        footer {
+            background-color: #1a0b2e;
+            color: #c9b6ff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+    </style>
+
+</head>
+<body>
+
+<header>
+    <h1>Tech IT</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">หน้าหลัก</a></li>
+            <li><a href="product.html">สินค้า</a></li>
+            <li><a href="about.html">เกี่ยวกับ</a></li>
+            <li><a href="contact.html">ติดต่อ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h2>ติดต่อเรา</h2>
+
+    <form id="contact-form">
+
+        <label for="name">ชื่อ</label>
+        <input type="text" id="name" required>
+
+        <label for="email">อีเมล</label>
+        <input type="email" id="email" required>
+
+        <label for="message">ข้อความ</label>
+        <textarea id="message"></textarea>
+
+        <button type="submit">ส่งข้อความ</button>
+        <p id="status"></p>
+
+    </form>
+</main>
+
+<footer>
+    <p>&copy; 2072 All right reserved. Design by Eknarin Apratnag</p>
+</footer>
+
+<script>
+    document.getElementById('contact-form').addEventListener('submit', function(event){
+        event.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const status = document.getElementById('status');
+
+        if (name === "" || email === ""){
+            status.textContent = 'โปรดกรอก ชื่อ และ อีเมล ให้ครบถ้วน';
+            status.style.color = 'red';
+        } else {
+            status.textContent = 'ส่งข้อความสำเร็จ ขอบคุณครับ 💜';
+            status.style.color = '#9d4edd';
+            document.getElementById('contact-form').reset();
+        }
+    });
+</script>
+
+</body>
+</html>
